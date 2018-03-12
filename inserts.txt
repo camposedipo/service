@@ -1,0 +1,133 @@
+INSERT INTO public.itens_pedido(
+	id, inf_completa, numero, produto, qtcx, qtseparada, qtun, separador)
+	VALUES (1,'SABÃO EM BARRA YPÊ 1KG 5UN',2220,121316,5,0,2,'RAIMUNDO NONATO');
+    
+INSERT INTO public.itens_pedido(
+	id, inf_completa, numero, produto, qtcx, qtseparada, qtun, separador)
+	VALUES (2,'AMACIANTE YPÊ CONCENTRADO 500ML PINK. CAIXA 12',2220,52585,5,0,2,'RAIMUNDO NONATO');    
+    
+INSERT INTO public.itens_pedido(
+	id, inf_completa, numero, produto, qtcx, qtseparada, qtun, separador)
+	VALUES (3,'CREME DENTAL COLGATE TOTAL 12',2220,51161,5,0,2,'RAIMUNDO NONATO');        
+    
+
+INSERT INTO public.itens_pedido(
+	id, inf_completa, numero, produto, qtcx, qtseparada, qtun, separador)
+	VALUES (4,'SABÃO EM BARRA YPÊ 1KG 5UN',2222,121316,5,0,2,'RAIMUNDO NONATO');
+    
+INSERT INTO public.itens_pedido(
+	id, inf_completa, numero, produto, qtcx, qtseparada, qtun, separador)
+	VALUES (5,'AMACIANTE YPÊ CONCENTRADO 500ML PINK. CAIXA 12',2222,52585,5,0,2,'RAIMUNDO NONATO');    
+    
+INSERT INTO public.itens_pedido(
+	id, inf_completa, numero, produto, qtcx, qtseparada, qtun, separador)
+	VALUES (6,'CREME DENTAL COLGATE TOTAL 12',2222,51161,5,0,2,'RAIMUNDO NONATO');     
+    
+
+INSERT INTO public.itens_pedido(
+	id, inf_completa, numero, produto, qtcx, qtseparada, qtun, separador)
+	VALUES (7,'SABÃO EM BARRA YPÊ 1KG 5UN',2221,121316,5,0,2,'RAIMUNDO NONATO');
+    
+INSERT INTO public.itens_pedido(
+	id, inf_completa, numero, produto, qtcx, qtseparada, qtun, separador)
+	VALUES (8,'AMACIANTE YPÊ CONCENTRADO 500ML PINK. CAIXA 12',2221,52585,5,0,2,'RAIMUNDO NONATO');    
+    
+INSERT INTO public.itens_pedido(
+	id, inf_completa, numero, produto, qtcx, qtseparada, qtun, separador)
+	VALUES (9,'CREME DENTAL COLGATE TOTAL 12',2221,51161,5,0,2,'RAIMUNDO NONATO');     
+    
+    
+select * from itens_pedido    
+
+{  
+  "carga": [{
+    "numero": "2301",
+    "destino": "ANPOLIS - GO",
+    "placa": "NFD-8990",
+    "box": "BOX 14",    
+    "situacao": "iniciado",
+    "totalPeso": "6.852",
+    "totalVolume": "4.8"
+  }, {
+    "numero": "2302",
+    "destino": "GOIANESIA - GO",
+    "placa": "NFD-8990",
+    "box": "BOX 13",    
+    "situacao": "pendente",
+    "totalPeso": "6.852",
+    "totalVolume": "4.8"
+  }, {
+    "numero": "2304",
+    "destino": "TRINDADE - GO",
+    "placa": "NFD-8990",
+    "box": "BOX 15",    
+    "situacao": "iniciado",
+    "totalPeso": "6.852",
+    "totalVolume": "4.8"
+  }, {
+    "numero": "2305",
+    "destino": "AP. GOIANIA - GO",
+    "placa": "NFD-8990",
+    "box": "BOX 2",    
+    "situacao": "pendente",
+    "totalPeso": "6.852",
+    "totalVolume": "4.8"
+  }, {
+    "numero": "2306",
+    "destino": "ITABERAÍ - GO",
+    "placa": "NFD-8990",
+    "box": "BOX 11",   
+    "situacao": "iniciado", 
+    "totalPeso": "6.852",
+    "totalVolume": "4.8"
+  }, {
+    "numero": "2307",
+    "destino": "TRINDADE - GO",
+    "placa": "NFD-8990",
+    "box": "BOX 15",  
+    "situacao": "pendente",  
+    "totalPeso": "6.852",
+    "totalVolume": "4.8"
+  }, {
+    "numero": "2308",
+    "destino": "AP. GOIANIA - GO",
+    "placa": "NFD-8990",
+    "box": "BOX 2",   
+    "situacao": "pendente", 
+    "totalPeso": "6.852",
+    "totalVolume": "4.8"
+  }, {
+    "numero": "2309",
+    "destino": "GOIANESIA - GO",
+    "placa": "NFD-8990",
+    "box": "BOX 13",   
+    "situacao": "finalizado", 
+    "totalPeso": "6.852",
+    "totalVolume": "4.8"
+  }, {
+    "numero": "2310",
+    "destino": "TRINDADE - GO",
+    "placa": "NFD-8990",
+    "box": "BOX 15",  
+    "situacao": "pendente",  
+    "totalPeso": "6.852",
+    "totalVolume": "4.8"
+  }, {
+    "numero": "2311",
+    "destino": "GOIANIRA - GO",
+    "placa": "NFD-8990",
+    "box": "BOX 4",   
+    "situacao": "pendente", 
+    "totalPeso": "6.852",
+    "totalVolume": "4.8"
+  }, {    
+    "numero": "2312",
+    "destino": "CIDADE DE GOIÁS - GO",
+    "placa": "NFD-8990",
+    "box": "BOX 3",   
+    "situacao": "finalizado",
+    "totalPeso": "6.852",
+    "totalVolume": "4.8"
+  }]
+ 
+}
