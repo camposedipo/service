@@ -9,13 +9,21 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Entity
-@Table(name = "usuario", uniqueConstraints = @UniqueConstraint(columnNames = { "email" }))
+@Table(name = "usuario", uniqueConstraints = @UniqueConstraint(columnNames = { "numero" }))
 @Data
+
 @EqualsAndHashCode(callSuper = false)
 public class Usuario extends AbstractEntity {
+	
 	@Column(nullable = false)
-	String nome;
+	String numero;
 
 	@Column(nullable = false)
-	String email;
+	String nome;
+		
+	@Column(nullable = false)
+	String senha;
+	
+	@Column(name="ativo", length = 1, nullable = false, columnDefinition="CHAR NOT NULL DEFAULT 'S'")    
+    private char ativo = 'S';
 }

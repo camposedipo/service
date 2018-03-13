@@ -45,4 +45,14 @@ public class Carga extends AbstractEntity {
 	
 	@Column
 	private String placa;
+	
+	@Column(name="separado", length = 1, nullable = false, columnDefinition="CHAR NOT NULL DEFAULT 'N'")  
+    private char separado = 'N';
+	
+	@Column(name="conferido", length = 1, nullable = false, columnDefinition="CHAR NOT NULL DEFAULT 'N'")    
+    private char conferido = 'N';
+	
+	@Column(name="agrupado", length = 1, nullable = false, columnDefinition="CHAR NOT NULL DEFAULT 'N'")    
+    private char agrupado = 'N';
+	
 }

@@ -33,5 +33,14 @@ public class ItensPedido extends AbstractEntity {
 	
 	@Column
 	private Float qtseparada;
+	
+	@Column
+	private Float qtconferida;                              
+	
+	@Column(name="separado", length = 1, nullable = false, columnDefinition="CHAR NOT NULL DEFAULT 'N'")  
+    private char separado = 'N';
+	
+	@Column(name="conferido", length = 1, nullable = false, columnDefinition="CHAR NOT NULL DEFAULT 'N'")    
+    private char conferido = 'N';
 		
 }

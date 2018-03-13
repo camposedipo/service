@@ -47,4 +47,13 @@ public class Pedido extends AbstractEntity {
 	
 	@Column
 	private String posicao;	
+	
+	@Column(name="separado", length = 1, nullable = false, columnDefinition="CHAR NOT NULL DEFAULT 'N'")  
+    private char separado = 'N';
+	
+	@Column(name="conferido", length = 1, nullable = false, columnDefinition="CHAR NOT NULL DEFAULT 'N'")    
+    private char conferido = 'N';
+	
+	@Column(name="agrupado", length = 1, nullable = false, columnDefinition="CHAR NOT NULL DEFAULT 'N'")    
+    private char agrupado = 'N';
 }
