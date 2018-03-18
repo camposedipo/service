@@ -9,7 +9,7 @@ public interface ProdutoService {
 	
 	Page<Produto> obtemTodosOsProduto(Pageable pageable);
 
-	Produto gravaItensPedido(Produto produto) throws Exception;
+	Produto gravaProduto(Produto produto) throws Exception;
 
 	void removeProduto(Long id);
 

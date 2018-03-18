@@ -1,49 +1,58 @@
 package br.com.tobe.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.tobe.core.model.entity.ItensPedido;
-import br.com.tobe.core.model.repository.ItensPedidoRepository;
-import br.com.tobe.service.ItensPedidoService;
+import br.com.tobe.core.model.entity.ConvocacaoAtiva;
+import br.com.tobe.core.model.repository.ConvocacaoAtivaoRepository;
+import br.com.tobe.service.ConvocacaoAtivaService;
 
 @Service
-public class ConvocacaoAtivaServiceImpl implements ItensPedidoService {
+public class ConvocacaoAtivaServiceImpl implements ConvocacaoAtivaService {
 
 	@Autowired
-	ItensPedidoRepository itensPedidoRepository;
+	ConvocacaoAtivaoRepository convocacaoAtivaRepository;
+	
+	@Override
+	public List<ConvocacaoAtiva> obterPedidoSeparar() {
+		
+		List<ConvocacaoAtiva> pedidoConvocar = this.convocacaoAtivaRepository.findByOrderByAceitoAsc();
+		return pedidoConvocar;
+	}
 	
 	@Override	
-	public Page<ItensPedido> obtemTodosOsItensPedido(Pageable pageable) {
+	public Page<ConvocacaoAtiva> obterTudoParaConvocar(Pageable pageable) {
 		
-		Page<ItensPedido> itensPedido = this.itensPedidoRepository.findAll(pageable);
-		return itensPedido; 
+		Page<ConvocacaoAtiva> tudoParaConvocar = this.convocacaoAtivaRepository.findAll(pageable);
+		return tudoParaConvocar; 
 	}
 
-	@Override
-	public ItensPedido gravaItensPedido(ItensPedido itensPedido) {
+	 
+    @Override
+	public ConvocacaoAtiva gravar(ConvocacaoAtiva convocacaoAtiva) {
 		
-		itensPedido = this.itensPedidoRepository.save(itensPedido);
-		return itensPedido;
+		convocacaoAtiva = this.convocacaoAtivaRepository.save(convocacaoAtiva);
+		return convocacaoAtiva;
 		
 	}
 
 	@Override
 	@Transactional
-	public void removeItensPedido(Long id) {		
+	public void remover(Long id) {		
 		
-		this.itensPedidoRepository.delete(id);
-		
+		this.convocacaoAtivaRepository.delete(id);		
 	}
 
 	@Override
-	public ItensPedido obtemItemPedidoPorId(Long id) {
+	public ConvocacaoAtiva obtemPorId(Long id) {
 		
-		ItensPedido itensPedido = this.itensPedidoRepository.findOne(id);
-		return itensPedido;
+		ConvocacaoAtiva convocacaoAtiva = this.convocacaoAtivaRepository.findOne(id);
+		return convocacaoAtiva;
 		
 	}
 

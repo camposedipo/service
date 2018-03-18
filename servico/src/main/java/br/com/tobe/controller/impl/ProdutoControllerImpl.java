@@ -9,30 +9,30 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.tobe.controller.ItensPedidoController;
-import br.com.tobe.core.model.entity.ItensPedido;
-import br.com.tobe.service.ItensPedidoService;
+import br.com.tobe.controller.ProdutoController;
+import br.com.tobe.core.model.entity.Produto;
+import br.com.tobe.service.ProdutoService;
 
 @RestController
-public class ProdutoControllerImpl implements ItensPedidoController {
+public class ProdutoControllerImpl implements ProdutoController {
 
 	@Autowired
-	private ItensPedidoService itensPedidoService;
+	private ProdutoService produtoService;
 
-	public ResponseEntity<Page<ItensPedido>> getAll(Pageable pageable) {
-		Page<ItensPedido> itensPedidoPage = this.itensPedidoService.obtemTodosOsItensPedido(pageable);
+	public ResponseEntity<Page<Produto>> getAll(Pageable pageable) {
+		Page<Produto> produtoPage = this.produtoService.obtemTodosOsProduto(pageable);
 
-		return new ResponseEntity<Page<ItensPedido>>(itensPedidoPage,HttpStatus.OK);
+		return new ResponseEntity<Page<Produto>>(produtoPage,HttpStatus.OK);
 	}
 
-	public ResponseEntity<ItensPedido> saveOrCretate(@RequestBody ItensPedido itensPedido) throws Exception {
-		itensPedido = this.itensPedidoService.gravaItensPedido(itensPedido);
+	public ResponseEntity<Produto> saveOrCretate(@RequestBody Produto Produto) throws Exception {
+		Produto = this.produtoService.gravaProduto(Produto);
 		
-		return new ResponseEntity<ItensPedido>(itensPedido,HttpStatus.OK);
+		return new ResponseEntity<Produto>(Produto,HttpStatus.OK);
 	}
 
 	public ResponseEntity<Void> remove(@PathVariable Long id) {
-		this.itensPedidoService.removeItensPedido(id);
+		this.produtoService.removeProduto(id);
 		
 		return ResponseEntity.noContent().build();
 	}

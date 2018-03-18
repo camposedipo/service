@@ -1,19 +1,13 @@
 package br.com.tobe.core.model.repository;
 
-import java.util.List;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.tobe.core.model.entity.ItensPedido;
+import br.com.tobe.core.model.entity.Volume;
 
-public interface VolumeRepository extends JpaRepository<ItensPedido, Long> {
+public interface VolumeRepository extends JpaRepository<Volume, Long> {	
 	
-	List<ItensPedido> findByOrderByNumeroAsc();
+	Page<Volume> findBy(Pageable pageable);
 	
-	Page<ItensPedido> findBy(Pageable pageable);
-	
-	//@Query("select c from pedido c order by c.posicao desc")
-	//	public Page<Pedido> findByPedidosNaoFaturados();
 }

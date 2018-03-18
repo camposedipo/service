@@ -6,44 +6,44 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.tobe.core.model.entity.ItensPedido;
-import br.com.tobe.core.model.repository.ItensPedidoRepository;
-import br.com.tobe.service.ItensPedidoService;
+import br.com.tobe.core.model.entity.Produto;
+import br.com.tobe.core.model.repository.ProdutoRepository;
+import br.com.tobe.service.ProdutoService;
 
 @Service
-public class ProdutoServiceImpl implements ItensPedidoService {
+public class ProdutoServiceImpl implements ProdutoService {
 
 	@Autowired
-	ItensPedidoRepository itensPedidoRepository;
+	ProdutoRepository produtoRepository;
 	
 	@Override	
-	public Page<ItensPedido> obtemTodosOsItensPedido(Pageable pageable) {
+	public Page<Produto> obtemTodosOsProduto(Pageable pageable) {
 		
-		Page<ItensPedido> itensPedido = this.itensPedidoRepository.findAll(pageable);
-		return itensPedido; 
+		Page<Produto> produto = this.produtoRepository.findAll(pageable);
+		return produto; 
 	}
 
 	@Override
-	public ItensPedido gravaItensPedido(ItensPedido itensPedido) {
+	public Produto gravaProduto(Produto produto) {
 		
-		itensPedido = this.itensPedidoRepository.save(itensPedido);
-		return itensPedido;
+		produto = this.produtoRepository.save(produto);
+		return produto;
 		
 	}
 
 	@Override
 	@Transactional
-	public void removeItensPedido(Long id) {		
+	public void removeProduto(Long id) {		
 		
-		this.itensPedidoRepository.delete(id);
+		this.produtoRepository.delete(id);
 		
 	}
 
 	@Override
-	public ItensPedido obtemItemPedidoPorId(Long id) {
+	public Produto obtemProdutoPorId(Long id) {
 		
-		ItensPedido itensPedido = this.itensPedidoRepository.findOne(id);
-		return itensPedido;
+		Produto produto = this.produtoRepository.findOne(id);
+		return produto;
 		
 	}
 

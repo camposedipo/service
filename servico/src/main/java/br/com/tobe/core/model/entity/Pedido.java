@@ -22,13 +22,11 @@ public class Pedido extends AbstractEntity {
 	@Column(nullable = false)
 	Long numero;
 	
-	@OneToOne
-	@JoinColumn(name = "carga_id", nullable = true)
-	private Carga carga;
+	@Column(nullable = true)
+	private Long carga_id;
 	
-	@OneToOne
-	@JoinColumn(name = "usuario_id", nullable = true)
-	private Usuario separador_id;
+	@Column(nullable = true)
+	private Long separador_id;
 
 	@Column(nullable = false)
 	private Float totalPeso;	
@@ -41,9 +39,6 @@ public class Pedido extends AbstractEntity {
 	
 	@Column
 	private Date dtfim;
-	
-	@Column
-	private Long codSeparador;
 	
 	@Column
 	private String posicao;	

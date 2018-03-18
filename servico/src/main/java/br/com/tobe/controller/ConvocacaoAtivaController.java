@@ -1,5 +1,7 @@
 package br.com.tobe.controller;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -10,16 +12,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.tobe.core.model.entity.ItensPedido;
+import br.com.tobe.core.model.entity.ConvocacaoAtiva;
 
-@RequestMapping("/itensPedido")
+@RequestMapping("/convocacaoAtiva")
 public interface ConvocacaoAtivaController {
 
 	@GetMapping("/all")
-	public ResponseEntity<Page<ItensPedido>> getAll(Pageable pageable);
+	public ResponseEntity<Page<ConvocacaoAtiva>> getAll(Pageable pageable);
+	
+	@GetMapping("/consultarPedidoSeparar")
+	public ResponseEntity<List<ConvocacaoAtiva>> getPedidoSeparar();
 
 	@PostMapping("/save-or-create")
-	public ResponseEntity<ItensPedido> saveOrCretate(@RequestBody ItensPedido itensPedido) throws Exception;
+	public ResponseEntity<ConvocacaoAtiva> saveOrCretate(@RequestBody ConvocacaoAtiva convocacaoAtiva) throws Exception;
 	
 	@DeleteMapping("/remove/{id}")
 	public ResponseEntity<Void> remove(@PathVariable Long id);

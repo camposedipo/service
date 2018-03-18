@@ -3,15 +3,18 @@ package br.com.tobe.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import br.com.tobe.core.model.entity.ItensPedido;
+import br.com.tobe.core.model.entity.Volume;
 
 public interface VolumeService {
 	
-	Page<ItensPedido> obtemTodosOsItensPedido(Pageable pageable);
+	Page<Volume> obtemTodos(Pageable pageable);
+	
+	Volume obtemPorPedido(Long pedido_id);
 
-	ItensPedido gravaItensPedido(ItensPedido itensPedido) throws Exception;
+	Volume gravar(Volume itensPedido) throws Exception;
 
-	void removeItensPedido(Long id);
+	void remover(Long id);
 
-	ItensPedido obtemItemPedidoPorId(Long id);
+	Volume obtemPorId(Long id) throws Exception;
+		
 }

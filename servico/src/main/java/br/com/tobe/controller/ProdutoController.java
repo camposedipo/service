@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.tobe.core.model.entity.ItensPedido;
+import br.com.tobe.core.model.entity.Produto;
 
-@RequestMapping("/itensPedido")
+@RequestMapping("/produto")
 public interface ProdutoController {
 
 	@GetMapping("/all")
-	public ResponseEntity<Page<ItensPedido>> getAll(Pageable pageable);
+	public ResponseEntity<Page<Produto>> getAll(Pageable pageable);
 
 	@PostMapping("/save-or-create")
-	public ResponseEntity<ItensPedido> saveOrCretate(@RequestBody ItensPedido itensPedido) throws Exception;
+	public ResponseEntity<Produto> saveOrCretate(@RequestBody Produto produto) throws Exception;
 	
 	@DeleteMapping("/remove/{id}")
 	public ResponseEntity<Void> remove(@PathVariable Long id);

@@ -6,14 +6,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.tobe.core.model.entity.ItensPedido;
+import br.com.tobe.core.model.entity.ConvocacaoAtiva;
 
-public interface ConvocacaoAtivaoRepository extends JpaRepository<ItensPedido, Long> {
+public interface ConvocacaoAtivaoRepository extends JpaRepository<ConvocacaoAtiva, Long> {
 	
-	List<ItensPedido> findByOrderByNumeroAsc();
+	List<ConvocacaoAtiva> findByOrderByAceitoAsc();
 	
-	Page<ItensPedido> findBy(Pageable pageable);
+	Page<ConvocacaoAtiva> findBy(Pageable pageable);
 	
-	//@Query("select c from pedido c order by c.posicao desc")
-	//	public Page<Pedido> findByPedidosNaoFaturados();
 }

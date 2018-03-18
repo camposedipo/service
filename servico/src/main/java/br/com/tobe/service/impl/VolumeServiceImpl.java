@@ -6,45 +6,53 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.tobe.core.model.entity.ItensPedido;
-import br.com.tobe.core.model.repository.ItensPedidoRepository;
-import br.com.tobe.service.ItensPedidoService;
+import br.com.tobe.core.model.entity.Volume;
+import br.com.tobe.core.model.repository.VolumeRepository;
+import br.com.tobe.service.VolumeService;
 
 @Service
-public class VolumeServiceImpl implements ItensPedidoService {
+public class VolumeServiceImpl implements VolumeService {
 
 	@Autowired
-	ItensPedidoRepository itensPedidoRepository;
+	VolumeRepository volumeRepository;
 	
 	@Override	
-	public Page<ItensPedido> obtemTodosOsItensPedido(Pageable pageable) {
+	public Page<Volume> obtemTodos(Pageable pageable) {
 		
-		Page<ItensPedido> itensPedido = this.itensPedidoRepository.findAll(pageable);
-		return itensPedido; 
+		Page<Volume> volume = this.volumeRepository.findAll(pageable);
+		return volume; 
 	}
-
+	
 	@Override
-	public ItensPedido gravaItensPedido(ItensPedido itensPedido) {
+	public Volume obtemPorPedido(Long pedido_id) {
 		
-		itensPedido = this.itensPedidoRepository.save(itensPedido);
-		return itensPedido;
+		Volume volume = this.volumeRepository.findOne(pedido_id);
+		return volume;
 		
 	}
 
 	@Override
 	@Transactional
-	public void removeItensPedido(Long id) {		
+	public Volume gravar(Volume volume) {
 		
-		this.itensPedidoRepository.delete(id);
+		volume = this.volumeRepository.save(volume);
+		return volume;
 		
 	}
 
 	@Override
-	public ItensPedido obtemItemPedidoPorId(Long id) {
+	@Transactional
+	public void remover(Long id) {		
 		
-		ItensPedido itensPedido = this.itensPedidoRepository.findOne(id);
-		return itensPedido;
+		this.volumeRepository.delete(id);
 		
 	}
 
+	@Override
+	public Volume obtemPorId(Long id) {
+		
+		Volume Volume = this.volumeRepository.findOne(id);
+		return Volume;
+		
+	}
 }

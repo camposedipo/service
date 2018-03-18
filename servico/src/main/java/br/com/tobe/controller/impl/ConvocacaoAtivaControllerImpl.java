@@ -1,5 +1,7 @@
 package br.com.tobe.controller.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -9,32 +11,41 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.tobe.controller.ItensPedidoController;
-import br.com.tobe.core.model.entity.ItensPedido;
-import br.com.tobe.service.ItensPedidoService;
+import br.com.tobe.controller.ConvocacaoAtivaController;
+import br.com.tobe.core.model.entity.ConvocacaoAtiva;
+import br.com.tobe.service.ConvocacaoAtivaService;
 
 @RestController
-public class ConvocacaoAtivaControllerImpl implements ItensPedidoController {
+public class ConvocacaoAtivaControllerImpl implements ConvocacaoAtivaController {
 
 	@Autowired
-	private ItensPedidoService itensPedidoService;
+	private ConvocacaoAtivaService convocacaoAtivaService;
 
-	public ResponseEntity<Page<ItensPedido>> getAll(Pageable pageable) {
-		Page<ItensPedido> itensPedidoPage = this.itensPedidoService.obtemTodosOsItensPedido(pageable);
+	public ResponseEntity<Page<ConvocacaoAtiva>> getAll(Pageable pageable) {
+		Page<ConvocacaoAtiva> convocacaoAtivaoPage = this.convocacaoAtivaService.obterTudoParaConvocar(pageable);
 
-		return new ResponseEntity<Page<ItensPedido>>(itensPedidoPage,HttpStatus.OK);
+		return new ResponseEntity<Page<ConvocacaoAtiva>>(convocacaoAtivaoPage,HttpStatus.OK);
 	}
 
-	public ResponseEntity<ItensPedido> saveOrCretate(@RequestBody ItensPedido itensPedido) throws Exception {
-		itensPedido = this.itensPedidoService.gravaItensPedido(itensPedido);
+	@Override
+	public ResponseEntity<List<ConvocacaoAtiva>> getPedidoSeparar() {
+		List<ConvocacaoAtiva> convocacaoAtivaList = this.convocacaoAtivaService.obterPedidoSeparar();
+
+		return new ResponseEntity<List<ConvocacaoAtiva>>(convocacaoAtivaList,HttpStatus.OK);
+	}
+
+	@Override
+	public ResponseEntity<ConvocacaoAtiva> saveOrCretate(@RequestBody ConvocacaoAtiva convocacaoAtiva) throws Exception {
+		convocacaoAtiva = this.convocacaoAtivaService.gravar(convocacaoAtiva);
 		
-		return new ResponseEntity<ItensPedido>(itensPedido,HttpStatus.OK);
+		return new ResponseEntity<ConvocacaoAtiva>(convocacaoAtiva,HttpStatus.OK);
 	}
 
+	@Override
 	public ResponseEntity<Void> remove(@PathVariable Long id) {
-		this.itensPedidoService.removeItensPedido(id);
+		this.convocacaoAtivaService.remover(id);
 		
 		return ResponseEntity.noContent().build();
 	}
-
+	
 }

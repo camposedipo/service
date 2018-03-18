@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.com.tobe.core.model.entity.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+	
 	List<Usuario> findByOrderByNomeAsc();
 	
 	Page<Usuario> findBy(Pageable pageable);

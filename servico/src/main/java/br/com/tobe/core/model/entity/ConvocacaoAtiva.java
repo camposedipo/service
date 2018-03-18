@@ -1,9 +1,9 @@
 package br.com.tobe.core.model.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -15,18 +15,21 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = false)
 public class ConvocacaoAtiva extends AbstractEntity {
+			
+	@Column(nullable = false)
+	private String CodFilial;
 	
 	@Column(nullable = false)
-	Long numero;
+	private Long pedido;
 	
-	@OneToOne
-	@JoinColumn(name = "pedido_id", nullable = false)
-	private Pedido pedido;
+	@Column(nullable = true)
+	private Long separador;
 	
-	@OneToOne
-	@JoinColumn(name = "separador_id", nullable = true)
-	private Usuario usuario;
-	                     
+	@Column
+	private Date dtrejeicao;
+
+	@Column
+	private Date dtaceitacao;
 	
 	@Column(name="aceito", length = 1, nullable = false, columnDefinition="CHAR NOT NULL DEFAULT 'N'")  
     private char aceito = 'N';

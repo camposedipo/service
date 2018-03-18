@@ -36,7 +36,7 @@ public class CargaServiceImpl implements CargaService {
 	public void removeCarga(Long id) {		
 		
 		this.cargaRepository.delete(id);
-		
+				
 	}
 
 	@Override

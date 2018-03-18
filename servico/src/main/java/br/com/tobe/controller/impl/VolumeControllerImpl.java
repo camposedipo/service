@@ -9,30 +9,36 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.tobe.controller.ItensPedidoController;
-import br.com.tobe.core.model.entity.ItensPedido;
-import br.com.tobe.service.ItensPedidoService;
+import br.com.tobe.controller.VolumeController;
+import br.com.tobe.core.model.entity.Volume;
+import br.com.tobe.service.VolumeService;
 
 @RestController
-public class VolumeControllerImpl implements ItensPedidoController {
+public class VolumeControllerImpl implements VolumeController {
 
 	@Autowired
-	private ItensPedidoService itensPedidoService;
+	private VolumeService volumeService;
 
-	public ResponseEntity<Page<ItensPedido>> getAll(Pageable pageable) {
-		Page<ItensPedido> itensPedidoPage = this.itensPedidoService.obtemTodosOsItensPedido(pageable);
+	public ResponseEntity<Page<Volume>> getAll(Pageable pageable) {
+		Page<Volume> VolumePage = this.volumeService.obtemTodos(pageable);
 
-		return new ResponseEntity<Page<ItensPedido>>(itensPedidoPage,HttpStatus.OK);
+		return new ResponseEntity<Page<Volume>>(VolumePage,HttpStatus.OK);
+	}
+	
+	public ResponseEntity<Page<Volume>> obtemPorPedido(@PathVariable Long pedido_id) {
+		Page<Volume> VolumePage = (Page<Volume>) this.volumeService.obtemPorPedido(pedido_id);
+
+		return new ResponseEntity<Page<Volume>>(VolumePage,HttpStatus.OK);
 	}
 
-	public ResponseEntity<ItensPedido> saveOrCretate(@RequestBody ItensPedido itensPedido) throws Exception {
-		itensPedido = this.itensPedidoService.gravaItensPedido(itensPedido);
+	public ResponseEntity<Volume> saveOrCretate(@RequestBody Volume volume) throws Exception {
+		volume = this.volumeService.gravar(volume);
 		
-		return new ResponseEntity<ItensPedido>(itensPedido,HttpStatus.OK);
+		return new ResponseEntity<Volume>(volume,HttpStatus.OK);
 	}
 
 	public ResponseEntity<Void> remove(@PathVariable Long id) {
-		this.itensPedidoService.removeItensPedido(id);
+		this.volumeService.remover(id);
 		
 		return ResponseEntity.noContent().build();
 	}
